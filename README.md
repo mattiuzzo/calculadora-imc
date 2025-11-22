@@ -7,15 +7,22 @@ Uma aplicação web moderna para calcular o Índice de Massa Corporal (IMC) com 
 - ✅ Cálculo preciso do IMC
 - ✅ Classificação automática em 6 categorias
 - ✅ Interface responsiva e moderna
-- ✅ API RESTful robusta
+- ✅ API RESTful
 - ✅ Validações completas
-- ✅ Design atrativo com feedback visual
 
-## 🚀 Como Usar
 
-### Instalação
+### 🚀 Instalação
 
 1. Clone o repositório:
 ```bash
 git clone https://github.com/seu-usuario/calculadora-imc.git
 cd calculadora-imc
+
+# Instale as dependências:
+npm install
+
+# Inicie o servidor:
+npm start
+
+# Para trabalhar em modo desenvolvimento com auto-reload:
+npm run dev
