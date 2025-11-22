@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #2c3e50;
+    --cor-secundaria: #3498db;
+    --cor-sucesso: #2ecc71;
+    --cor-aviso: #f39c12;
+    --cor-perigo: #e74c3c;
+    --cor-fundo: #ecf0f1;
+    --cor-texto: #2c3e50;
+    --cor-texto-claro: #7f8c8d;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
+    --transicao: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: linear-gradient(135deg, #F2FF00 0%, #117BEC 100%); */
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--cor-texto);
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: grid;
+    gap: 30px;
+}
+
+.calculator-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: var(--sombra);
+    animation: fadeIn 0.5s ease 0.1s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--cor-primaria);
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transicao);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #bdc3c7;
+}
+
+.btn-calcular {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #117BEC 0%, #117BEC 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: 10px;
+}
+
+.btn-calcular:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
+}
+
+.btn-calcular:active {
+    transform: translateY(0);
+}
+
+.resultado {
+    animation: slideDown 0.5s ease;
+}
+
+.resultado.hidden {
+    display: none;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+.resultado-header {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.resultado-header h2 {
+    color: var(--cor-primaria);
+    font-size: 1.5rem;
+}
+
+.resultado-imc {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.imc-valor {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+}
+
+.imc-numero {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+}
+
+.imc-unidade {
+    font-size: 1.2rem;
+    color: var(--cor-texto-claro);
+}
+
+.resultado-classificacao {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.resultado-classificacao.magreza {
+    background-color: #3498db;
+}
+
+.resultado-classificacao.eutrofia {
+    background-color: #2ecc71;
+}
+
+.resultado-classificacao.sobrepeso {
+    background-color: #f39c12;
+}
+
+.resultado-classificacao.obesidade-i {
+    background-color: #e67e22;
+}
+
+.resultado-classificacao.obesidade-ii {
+    background-color: #e74c3c;
+}
+
+.resultado-classificacao.obesidade-iii {
+    background-color: #c0392b;
+}
+
+.resultado-classificacao .categoria {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.resultado-classificacao .descricao {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.resultado-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.detalhe {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.detalhe .label {
+    display: block;
+    color: var(--cor-texto-claro);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.detalhe .valor {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+.btn-limpar {
+    width: 100%;
+    padding: 12px 20px;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.btn-limpar:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.erro {
+    background-color: #ffe5e5;
+    border: 2px solid #e74c3c;
+    border-radius: 10px;
+    padding: 20px;
+    color: #c0392b;
+    animation: shake 0.3s ease;
+}
+
+.erro.hidden {
+    display: none;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.erro-icone {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.erro p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.btn-fechar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transicao);
+}
+
+.btn-fechar:hover {
+    background-color: #c0392b;
+}
+
+.tabela-classificacao {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: var(--sombra);
+    animation: fadeIn 0.5s ease 0.2s both;
+}
+
+.tabela-classificacao h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.tabela-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.classificacao-item {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    transition: var(--transicao);
+}
+
+.classificacao-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+}
+
+.classificacao-item.magreza {
+    background-color: #3498db;
+}
+
+.classificacao-item.eutrofia {
+    background-color: #2ecc71;
+}
+
+.classificacao-item.sobrepeso {
+    background-color: #F8C62F;
+}
+
+.classificacao-item.obesidade-i {
+    background-color: #e67e22;
+}
+
+.classificacao-item.obesidade-ii {
+    background-color: #e74c3c;
+}
+
+.classificacao-item.obesidade-iii {
+    background-color: #96180B;
+}
+
+.item-label {
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+}
+
+.item-intervalo {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    padding: 20px;
+    opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .calculator-card {
+        padding: 25px;
+    }
+
+    .imc-numero {
+        font-size: 2.5rem;
+    }
+
+    .resultado-detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .tabela-container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+
+    .form {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header {
+        margin-bottom: 25px;
+    }
+
+    .calculator-card {
+        padding: 20px;
+    }
+
+    .imc-numero {
+        font-size: 2rem;
+    }
+
+    .tabela-container {
+        grid-template-columns: 1fr;
+    }
+}
