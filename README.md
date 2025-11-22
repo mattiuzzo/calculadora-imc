@@ -1,6 +1,6 @@
 # 🏥 Calculadora de IMC
 
-Uma aplicação web moderna para calcular o Índice de Massa Corporal (IMC) com classificação automática e interface responsiva.
+Uma aplicação web para calcular o Índice de Massa Corporal (IMC) com classificação automática e interface responsiva.
 
 ## ✨ Características
 
